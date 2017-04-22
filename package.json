@@ -1,0 +1,17 @@
+{
+  "name": "expressroutes",
+  "version": "1.0.0",
+  "description": "Tutorial exercise for Express routing and accompanying logic",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Adam Mackintosh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
