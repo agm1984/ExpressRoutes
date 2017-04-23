@@ -33,7 +33,7 @@ app.get("/speak/:animal", function(req, res) {
 function getRepeatedString(str, num) {
     if (str.length > 0 && Number(num) > 0) {
         var displayString = "";
-        for (var i = 0; i < (Number(num); i++) {
+        for (var i = 0; i < Number(num); i++) {
             displayString += str + " ";
         }
         return displayString;
