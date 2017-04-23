@@ -6,34 +6,31 @@ app.get("/", function(req, res) {
     res.send("Hey there, welcome to my assignment!");
 });
 
-// Function to check animal type
-function checkAnimal(animalType) {
-    if (animalType === "pig") {
-        return "The pig says 'Oink'";
-    }
-    if (animalType === "cow") {
-        return "The cow says 'Moo'";
-    }
-    if (animalType === "dog") {
-        return "The pig says 'Woof Woof!'";
-    }
-    else {
-        return "Sorry, animal not recognized. Try: Pig, Cow, or Dog!";
-    }
-};
-
 // Speak Route
 app.get("/speak/:animal", function(req, res) {
+    // Sounds dictionary
+    var sounds = {
+      pig: "Oink",
+      cow: "Moo",
+      dog: "Woof Woof!",
+      cat: "I hate you human",
+      goldfish: "Blurblerp"
+    };
     var animal = req.params.animal.toLowerCase();
-    // support 3 animals: pig, cow, dog
-    res.send(checkAnimal(animal));
+    var sound = sounds[animal];
+    if (!sounds[animal]) {
+        res.send("Unknown animal: " + animal);
+    } else {
+        res.send("The " + animal + " says \"" + sound + "\"");
+    }
 });
 
 // Function to generate repeated string
 function getRepeatedString(str, num) {
-    if (str.length > 0 && Number(num) > 0) {
+    var ensureNumber = Number(num);
+    if (ensureNumber > 0) {
         var displayString = "";
-        for (var i = 0; i < Number(num); i++) {
+        for (var i = 0; i < ensureNumber; i++) {
             displayString += str + " ";
         }
         return displayString;
