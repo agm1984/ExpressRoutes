@@ -31,9 +31,9 @@ app.get("/speak/:animal", function(req, res) {
 
 // Function to generate repeated string
 function getRepeatedString(str, num) {
-    if (str.length > 0 && num > 0) {
+    if (str.length > 0 && Number(num) > 0) {
         var displayString = "";
-        for (var i = 0; i < num; i++) {
+        for (var i = 0; i < (Number(num); i++) {
             displayString += str + " ";
         }
         return displayString;
@@ -45,7 +45,7 @@ function getRepeatedString(str, num) {
 // Repeat Route
 app.get("/repeat/:string/:count", function(req, res) {
     var string = req.params.string;
-    var count = req.params.count;
+    var count = Number(req.params.count);
     // Display the string, count number of times
     res.send(getRepeatedString(string, count));
 });
